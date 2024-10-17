@@ -1,9 +1,14 @@
 import React from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DIY = ({ isLoggedIn }) => {
   const handleAccessDIY = () => {
     if (!isLoggedIn) {
-      alert('Please sign up or log in to access DIY videos for your road trip! 🛠️');
+      toast.error('Please sign up or log in to access DIY videos for your road trip! 🛠️', {
+        position: "top-center",
+        autoClose: 5000,
+      });
     }
   };
 
@@ -17,7 +22,7 @@ const DIY = ({ isLoggedIn }) => {
         muted
         playsInline
       >
-        <source src="/DIY.mp4" type="video/mp4" />
+        <source src="/GhumteHaii/DIY.mp4" type="video/mp4" /> {/* Updated path */}
         Your browser does not support the video tag.
       </video>
       
@@ -41,6 +46,18 @@ const DIY = ({ isLoggedIn }) => {
           </>
         )}
       </div>
+
+      <ToastContainer 
+        position="top-center" 
+        autoClose={5000} 
+        hideProgressBar={false} 
+        newestOnTop={false} 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+      />
     </div>
   );
 };

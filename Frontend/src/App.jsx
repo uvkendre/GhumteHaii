@@ -1,6 +1,5 @@
-// src/App.jsx
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './home/Home';
 import About from './about/About';
@@ -51,7 +50,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/GhumteHaii">
       <Navbar 
         user={user} 
         setUser={setUser} 
@@ -72,6 +71,8 @@ function App() {
         <Route path="/weather" element={<Weather isLoggedIn={isLoggedIn} />} />
         <Route path="/signup" element={<Signup setUser={setUser} setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/login" element={<Login setUser={setUser} setIsLoggedIn={setIsLoggedIn} />} />
+        {/* Redirect any unknown route to the home page */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,11 +1,16 @@
 import React from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Restaurants = ({ isLoggedIn }) => {
   const handleRestaurantsClick = () => {
     if (isLoggedIn) {
-      window.location.href = 'https://www.restaurants.com';
+      window.location.href = 'https://www.google.com/maps/search/restaurants+near+me/@18.6161325,73.8161398,12z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTAxNC4wIKXMDSoASAFQAw%3D%3D';
     } else {
-      alert('Please sign up or log in to find restaurants near you! 🍽️');
+      toast.error('Please sign up or log in to find restaurants near you! 🍽️', {
+        position: "top-center",
+        autoClose: 5000,
+      });
     }
   };
 
@@ -17,7 +22,7 @@ const Restaurants = ({ isLoggedIn }) => {
         muted
         className="absolute inset-0 w-full h-full object-cover opacity-50"
       >
-        <source src="/restaurant.mp4" type="video/mp4" />
+        <source src="/GhumteHaii/restaurant.mp4" type="video/mp4" /> {/* Updated path */}
         Your browser does not support the video tag.
       </video>
 
@@ -38,6 +43,18 @@ const Restaurants = ({ isLoggedIn }) => {
           Find Restaurants
         </button>
       </div>
+
+      <ToastContainer 
+        position="top-center" 
+        autoClose={5000} 
+        hideProgressBar={false} 
+        newestOnTop={false} 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+      />
     </div>
   );
 };

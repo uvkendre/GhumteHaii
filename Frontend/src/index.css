@@ -4,9 +4,10 @@
 @tailwind utilities;
 
 body {
-    font-family: Poppins;
+    font-family: 'Poppins', ; /* Use Poppins with a fallback */
     cursor: url('/cursor.cur'), auto;
 }
+
 html {
     scroll-behavior: smooth;
 }

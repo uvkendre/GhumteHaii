@@ -1,11 +1,16 @@
 import React from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FuelStations = ({ isLoggedIn }) => {
   const handleFuelStationsClick = () => {
     if (isLoggedIn) {
       window.location.href = 'https://www.google.com/maps/search/fuel+station+near+me/@19.1700588,77.3336351,12.75z?entry=ttu&g_ep=EgoyMDI0MTAwNS4yIKXMDSoASAFQAw%3D%3D';
     } else {
-      alert('Please sign up or log in to find fuel stations near you! ⛽');
+      toast.error('Please sign up or log in to find fuel stations near you! ⛽', {
+        position: "top-center",
+        autoClose: 5000,
+      });
     }
   };
 
@@ -17,7 +22,7 @@ const FuelStations = ({ isLoggedIn }) => {
         muted
         className="absolute inset-0 w-full h-full object-cover opacity-50"
       >
-        <source src="/fuelStation.mp4" type="video/mp4" />
+        <source src="/GhumteHaii/fuelStation.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -38,6 +43,18 @@ const FuelStations = ({ isLoggedIn }) => {
           Find Fuel Stations
         </button>
       </div>
+
+      <ToastContainer 
+        position="top-center" 
+        autoClose={5000} 
+        hideProgressBar={false} 
+        newestOnTop={false} 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+      />
     </div>
   );
 };

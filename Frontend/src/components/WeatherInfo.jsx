@@ -1,11 +1,16 @@
 import React from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const WeatherInfo = ({ isLoggedIn }) => {
   const handleWeatherInfoClick = () => {
     if (isLoggedIn) {
       window.location.href = 'https://www.weather.com';
     } else {
-      alert('Please sign up or log in to access weather information! ☀️🌧️');
+      toast.error('Please sign up or log in to access weather information! ☀️🌧️', {
+        position: "top-center",
+        autoClose: 5000,
+      });
     }
   };
 
@@ -17,7 +22,7 @@ const WeatherInfo = ({ isLoggedIn }) => {
         muted
         className="absolute inset-0 w-full h-full object-cover opacity-50"
       >
-        <source src="/weather.mp4" type="video/mp4" />
+        <source src="/GhumteHaii/weather.mp4" type="video/mp4" /> {/* Updated path */}
         Your browser does not support the video tag.
       </video>
 
@@ -38,6 +43,18 @@ const WeatherInfo = ({ isLoggedIn }) => {
           Check Weather
         </button>
       </div>
+
+      <ToastContainer 
+        position="top-center" 
+        autoClose={5000} 
+        hideProgressBar={false} 
+        newestOnTop={false} 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+      />
     </div>
   );
 };

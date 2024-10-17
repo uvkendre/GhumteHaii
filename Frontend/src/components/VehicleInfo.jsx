@@ -1,23 +1,28 @@
 import React from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const VehicleInfo = ({ isLoggedIn }) => {
   const handleVehicleInfoClick = () => {
     if (isLoggedIn) {
       window.location.href = 'https://www.vehicleinfo.com';
     } else {
-      alert('Please sign up or log in to access vehicle information! 🚗');
+      toast.error('Please sign up or log in to access vehicle information! 🚗', {
+        position: "top-center",
+        autoClose: 5000,
+      });
     }
   };
 
   return (
     <div className="relative w-full h-[600px]">
       <video
+        className="absolute inset-0 w-full h-full object-cover opacity-50"
         autoPlay
         loop
         muted
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
       >
-        <source src="/bikeinfo.mp4" type="video/mp4" />
+        <source src="/GhumteHaii/vehicleinfo.mp4" type="video/mp4" /> {/* Updated path */}
         Your browser does not support the video tag.
       </video>
 
@@ -33,11 +38,23 @@ const VehicleInfo = ({ isLoggedIn }) => {
         </p>
         <button
           onClick={handleVehicleInfoClick}
-          className="px-6 py-3 bg-blue-600 text-white text-lg rounded-lg shadow-lg hover:bg-blue-500"
+          className="px-6 py-3 bg-blue-600 text-white text-lg rounded-lg shadow-lg hover:bg-blue-500 mb-8"
         >
           Access Vehicle Info
         </button>
       </div>
+
+      <ToastContainer 
+        position="top-center" 
+        autoClose={5000} 
+        hideProgressBar={false} 
+        newestOnTop={false} 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+      />
     </div>
   );
 };

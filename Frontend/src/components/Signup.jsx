@@ -31,12 +31,12 @@ const Signup = ({ setUser, setIsLoggedIn }) => {
 
       if (response.ok) {
         setIsLoggedIn(true);
-        setUser(data.user); // Assuming the response contains user data
-        localStorage.setItem('user', JSON.stringify(data.user)); // Save user info to local storage
-        localStorage.setItem('token', data.token); // Save token to local storage
+        setUser(data.user);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('token', data.token);
         setMessage('Signup successful!');
         dialogRef.current.close();
-        navigate('/'); // Redirect to home screen
+        navigate('/');
       } else {
         setMessage(data.message);
       }
@@ -51,7 +51,11 @@ const Signup = ({ setUser, setIsLoggedIn }) => {
       <form
         method="dialog"
         className="modal-box bg-cover bg-center text-black"
-        style={{ backgroundImage: 'url("/bg-modal.jpg")' }}
+        style={{
+          backgroundImage: 'url("https://raw.githubusercontent.com/uvkendre/GhumteHaii/main/Frontend/public/bg-modal.jpg")', // Updated path
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
         onSubmit={handleSubmit}
       >
         <h2 className="font-bold text-2xl text-black">SIGNUP</h2>

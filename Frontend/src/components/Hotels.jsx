@@ -1,12 +1,17 @@
 import React from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Hotels = ({ isLoggedIn }) => {
   const handleHotelSearch = () => {
     if (isLoggedIn) {
-      // Redirect logged-in users to the external URL for hotel bookings
       window.location.href = 'https://www.makemytrip.com/hotels/';
     } else {
-      alert('Please sign up or log in to access hotel information! 🏨');
+      // Use a string for the position instead of using toast.POSITION
+      toast.error('Please sign up or log in to access hotel information! 🏨', {
+        position: "top-center",
+        autoClose: 5000,
+      });
     }
   };
 
@@ -18,7 +23,7 @@ const Hotels = ({ isLoggedIn }) => {
         loop
         muted
       >
-        <source src="/hotel.mp4" type="video/mp4" />
+        <source src="/GhumteHaii/hotel.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -37,6 +42,18 @@ const Hotels = ({ isLoggedIn }) => {
           Search Hotels
         </button>
       </div>
+
+      <ToastContainer 
+        position="top-center" 
+        autoClose={5000} 
+        hideProgressBar={false} 
+        newestOnTop={false} 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+      />
     </div>
   );
 };

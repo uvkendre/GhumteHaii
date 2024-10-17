@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const images = [
-    "/img1.png",
-    "/img2.png",
-    "/img3.png",
-    "/img4.png",
-    "/img5.png",
+    "/GhumteHaii/img1.png", // Updated paths to include the repository name
+    "/GhumteHaii/img2.png",
+    "/GhumteHaii/img3.png",
+    "/GhumteHaii/img4.png",
+    "/GhumteHaii/img5.png",
   ];
 
   const totalImages = images.length;

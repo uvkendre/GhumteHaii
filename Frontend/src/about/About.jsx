@@ -2,16 +2,22 @@ import React from "react";
 
 function About() {
   return (
-    <div
-      className="hero min-h-screen"
-      style={{
-        backgroundImage: "url('/bg.jpeg')",
-      }}
-    >
-      <div className="hero-overlay bg-opacity-70"></div>
-      <div className="hero-content text-neutral-content text-center">
+    <div className="relative min-h-screen flex items-center justify-center">
+      {/* Background Video */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-80"
+        autoPlay
+        loop
+        muted
+        src="/GhumteHaii/about-us.mp4" // Update the path as needed
+      />
+      {/* Overlay for background video */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30"></div>
+
+      {/* Content */}
+      <div className="relative z-10 hero-content text-neutral-content text-center">
         <div className="max-w-4xl mx-2 p-6 text-white">
-          <h1 className="text-3xl font-bold mb-4">About Us</h1>
+          <h1 className="text-3xl font-bold mt-16 mb-4">About Us</h1>
           <p className="mb-4">
             Welcome to <strong>Ghumte Haii!</strong>
           </p>

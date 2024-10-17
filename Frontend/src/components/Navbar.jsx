@@ -57,7 +57,7 @@ function Navbar({ user, setUser, isLoggedIn, setIsLoggedIn, handleLogout }) {
               </button>
             </div>
             <Link to="/" className="btn btn-ghost text-xl font-bold hover:scale-105 duration-300">
-            Ghumte Haii
+              Ghumte Haii
             </Link>
           </div>
 
@@ -68,7 +68,11 @@ function Navbar({ user, setUser, isLoggedIn, setIsLoggedIn, handleLogout }) {
                   Home
                 </Link>
               </li>
-              <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="relative">
+              <li
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                className="relative"
+              >
                 <button className="hover:scale-105 duration-300">Our Services ⮟</button>
                 {isDropdownOpen && (
                   <ul className="absolute left-0 top-full p-4 bg-gray-700 text-white rounded-lg shadow-lg z-10">
@@ -125,21 +129,101 @@ function Navbar({ user, setUser, isLoggedIn, setIsLoggedIn, handleLogout }) {
 
           <div className="navbar-end">
             {isLoggedIn ? (
-              <button onClick={handleLogout} className="btn mx-2 hover:scale-105 duration-300 bg-gradient-to-t from-sky-500 to-blue-300 hover:bg-blue-500 hover:text-orange-500 text-black font-semibold border-none">
+              <button
+                onClick={handleLogout}
+                className="btn mx-2 hover:scale-105 duration-300 bg-gradient-to-t from-sky-500 to-blue-300 hover:bg-blue-500 hover:text-orange-500 text-black font-semibold border-none"
+              >
                 Logout
               </button>
             ) : (
               <>
-                <button onClick={openLoginModal} className="btn mx-2 hover:scale-105 duration-300 bg-gradient-to-t from-sky-500 to-blue-300 hover:bg-blue-500 hover:text-orange-500 text-black font-semibold border-none">
+                <button
+                  onClick={openLoginModal}
+                  className="btn mx-2 hover:scale-105 duration-300 bg-gradient-to-t from-sky-500 to-blue-300 hover:bg-blue-500 hover:text-orange-500 text-black font-semibold border-none"
+                >
                   Login
                 </button>
-                <button onClick={openSignupModal} className="btn mx-2 hover:scale-105 duration-300 bg-gradient-to-t from-sky-500 to-blue-300 hover:bg-blue-500 hover:text-orange-500 text-black font-semibold border-none">
+                <button
+                  onClick={openSignupModal}
+                  className="btn mx-2 hover:scale-105 duration-300 bg-gradient-to-t from-sky-500 to-blue-300 hover:bg-blue-500 hover:text-orange-500 text-black font-semibold border-none"
+                >
                   Signup
                 </button>
               </>
             )}
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-gray-200 p-4">
+            <ul className="flex flex-col">
+              <li className="my-2">
+                <Link to="/" onClick={handleOptionClick} className="hover:scale-105 duration-300">
+                  Home
+                </Link>
+              </li>
+              <li className="my-2">
+                <button
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  className="hover:scale-105 duration-300"
+                >
+                  Our Services ⮟
+                </button>
+                {isDropdownOpen && (
+                  <ul className="p-4 bg-gray-700 text-white rounded-lg shadow-lg z-10">
+                    <li className="my-2 hover:scale-105 duration-300">
+                      <Link to="/hotels" onClick={handleOptionClick}>
+                        Hotels
+                      </Link>
+                    </li>
+                    <li className="my-2 hover:scale-105 duration-300">
+                      <Link to="/fuel-stations" onClick={handleOptionClick}>
+                        Fuel Stations
+                      </Link>
+                    </li>
+                    <li className="my-2 hover:scale-105 duration-300">
+                      <Link to="/service-shops" onClick={handleOptionClick}>
+                        Service Shops
+                      </Link>
+                    </li>
+                    <li className="my-2 hover:scale-105 duration-300">
+                      <Link to="/diy" onClick={handleOptionClick}>
+                        DIYs
+                      </Link>
+                    </li>
+                    <li className="my-2 hover:scale-105 duration-300">
+                      <Link to="/hospitals" onClick={handleOptionClick}>
+                        Hospitals
+                      </Link>
+                    </li>
+                    <li className="my-2 hover:scale-105 duration-300">
+                      <Link to="/restaurants" onClick={handleOptionClick}>
+                        Restaurants
+                      </Link>
+                    </li>
+                    <li className="my-2 hover:scale-105 duration-300">
+                      <Link to="/vehicle-info" onClick={handleOptionClick}>
+                        Vehicle Info
+                      </Link>
+                    </li>
+                    <li className="my-2 hover:scale-105 duration-300">
+                      <Link to="/weather" onClick={handleOptionClick}>
+                        Weather Info
+                      </Link>
+                    </li>
+                  </ul>
+                )}
+              </li>
+              <li className="my-2">
+                <Link to="/about" onClick={handleOptionClick} className="hover:scale-105 duration-300">
+                  About Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
       <Login setUser={setUser} setIsLoggedIn={setIsLoggedIn} />
       <Signup setUser={setUser} setIsLoggedIn={setIsLoggedIn} />
