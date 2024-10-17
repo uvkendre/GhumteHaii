@@ -2,17 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; URL=/#/" />
-    <script type="text/javascript">
-        // This script will automatically redirect the user to the correct route.
-        (function() {
-            var path = window.location.pathname;
-            var redirectTo = "/GhumteHaii/#" + path;
-            window.location.replace(redirectTo);
-        })();
-    </script>
     <title>Page Not Found</title>
 </head>
 <body>
+    <script type="text/javascript">
+        // Redirect to the appropriate React route
+        window.location.replace(window.location.pathname);
+    </script>
 </body>
 </html>
