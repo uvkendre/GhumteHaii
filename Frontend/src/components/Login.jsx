@@ -21,7 +21,7 @@ const Login = ({ setUser, setIsLoggedIn }) => {
     }
 
     try {
-      const response = await fetch('http://localhost:4001/api/users/login', {
+      const response = await fetch('YOUR_PUBLIC_API_URL/api/users/login', { // Update the URL here
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -52,7 +52,7 @@ const Login = ({ setUser, setIsLoggedIn }) => {
         method="dialog"
         className="modal-box bg-cover bg-center text-black"
         style={{
-          backgroundImage: 'url("https://raw.githubusercontent.com/uvkendre/GhumteHaii/main/Frontend/public/bg-modal.jpg")', // Updated path
+          backgroundImage: 'url("https://raw.githubusercontent.com/uvkendre/GhumteHaii/main/Frontend/public/bg-modal.jpg")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -76,7 +76,7 @@ const Login = ({ setUser, setIsLoggedIn }) => {
             value={formData.password}
             onChange={handleInputChange}
           />
-          {message && <p className="text-red-500">{message}</p>}
+          {message && <p className="text-white">{message}</p>}
         </div>
         <div className="modal-action">
           <button type="submit" className="btn bg-green-400 text-black border-none hover:bg-green-500">Login</button>

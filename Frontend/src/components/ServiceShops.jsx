@@ -22,7 +22,7 @@ const ServiceShops = ({ isLoggedIn }) => {
         muted
         className="absolute inset-0 w-full h-full object-cover opacity-50"
       >
-        <source src="/GhumteHaii/serviceShops.mp4" type="video/mp4" /> {/* Update with your video path */}
+        <source src="/GhumteHaii/serviceStation.mp4" type="video/mp4" /> {/* Update with your video path */}
         Your browser does not support the video tag.
       </video>
 

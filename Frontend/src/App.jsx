@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './home/Home';
 import About from './about/About';
@@ -50,7 +50,7 @@ function App() {
   };
 
   return (
-    <Router basename="/GhumteHaii">
+    <Router>
       <Navbar 
         user={user} 
         setUser={setUser} 

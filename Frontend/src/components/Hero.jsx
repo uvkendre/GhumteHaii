@@ -31,7 +31,7 @@ function Hero() {
         >
           <img
             src={image}
-            className="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+            className="absolute block w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt={`Carousel item ${index + 1}`}
           />
         </div>
